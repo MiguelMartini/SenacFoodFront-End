@@ -1,0 +1,16 @@
+
+.footerContent{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #5c6bc0;
+    width: auto;
+    height: 150px;
+}
+.copyP{
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    margin: 0;
+}
