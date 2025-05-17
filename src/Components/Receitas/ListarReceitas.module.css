@@ -1,0 +1,47 @@
+.mainDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+}
+.titlePage{
+
+}
+.title{
+    font-weight: bold;
+    font-size: 40px;
+    color: #5c6bc0;
+}
+.voltar{
+    display: flex;
+    justify-content: flex-end; 
+    padding: 20px;             
+    width: 190vh;               
+    box-sizing: border-box; 
+    z-index: 1000; 
+}
+.voltarBtn{
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 25px;
+    cursor: pointer;
+    transition: all .4s;
+    background-color: #5c6bc0;
+    color: #fff;
+}
+.voltarBtn:hover{
+    transform: scale(.98);
+    opacity: .95;
+}
+.receitas{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 100vh;
+    gap: 2rem;
+}

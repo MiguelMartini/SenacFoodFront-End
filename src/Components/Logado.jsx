@@ -40,7 +40,7 @@ import Cards from './Generics/Cards';
   }
 
   const handleFavs = () => {
-    navigate('/favoritos')
+    navigate('/listarReceitas')
   }
   
 

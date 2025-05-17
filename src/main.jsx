@@ -8,7 +8,9 @@ import { UserLogin } from './Components/UserLogin.jsx'
 import { Logado } from './Components/Logado.jsx'
 import PrivateRoute from './Components/PrivateRoute.jsx'
 import { CreateRecipe } from './Components/Receitas/CreateRecipe.jsx'
-import { Favorites } from './Components/Receitas/Favorites.jsx'
+import { ListarReceitas } from './Components/Receitas/ListarReceitas.jsx';
+import { Receita } from './Components/Receitas/Receita.jsx'
+
 
 const router = createBrowserRouter([
   {
@@ -38,15 +40,24 @@ const router = createBrowserRouter([
         element: <CreateRecipe/>
       }
     ]
+  }, {
+    element: <PrivateRoute/>,
+    children: [
+      {
+        path: "/listarReceitas",
+        element: <ListarReceitas/>
+      }
+    ]
   },{
     element: <PrivateRoute/>,
     children: [
       {
-        path: "/favoritos",
-        element: <Favorites/>
+        path: "/receita",
+        element: <Receita/>
       }
     ]
   }
+
 ])
 
 createRoot(document.getElementById('root')).render(

@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     background-color: #5c6bc0;
-    width: 100%;
+    min-width: 100%;
     height: 150px;
 }
 .copyP{
@@ -16,4 +16,17 @@
     font-size: 12px;
     margin: 0 auto;
     word-wrap: break-word;
+}
+
+/* media query */
+@media screen and (max-width: 768px){
+    .footerContent{
+        height: 150px;
+    }
+
+    .copyP{
+        font-size: 10px;
+        padding: 10px 10px;
+        word-wrap: break-word;
+    }
 }
