@@ -8,7 +8,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all .4s;
     cursor: pointer;
+}
+.mainSection:hover{
+    transform: scale(.98);
+    opacity: .98;
 }
 
 .mainContent{
