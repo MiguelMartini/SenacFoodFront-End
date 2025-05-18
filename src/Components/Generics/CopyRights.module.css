@@ -30,3 +30,16 @@
         word-wrap: break-word;
     }
 }
+
+@media screen and (max-width: 480px) {
+    .footerContent {
+        height: 150px;
+        
+    }
+
+    .copyP {
+        font-size: 10px;
+        padding: 10px;
+        word-wrap: break-word;
+    }
+}

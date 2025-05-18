@@ -30,3 +30,23 @@
     opacity: .7;
     background-color: #fff;
 }
+
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+}
+
+/* Media query para 480px */
+@media (max-width: 480px) {
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 10px; /* opcional para dar um respiro nas laterais */
+    }
+}

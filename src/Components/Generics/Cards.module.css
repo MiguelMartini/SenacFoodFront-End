@@ -26,7 +26,7 @@
     font-weight: bold;
     font-size: 18px;
 }
-/* media query */
+
 @media (max-width: 900px) {
     .mainSection {
         width: 300px;
@@ -36,6 +36,16 @@
 
     .paragraph {
         font-size: 16px;
+    }
+}
+@media (max-width: 770px) {
+    .mainSection {
+        width: 200px;
+        height: 150px;
+        margin: 10px auto;
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: row;
     }
 }
 
@@ -48,11 +58,5 @@
         box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
         display: flex;
         flex-direction: row;
-    }
-    
-
-    .paragraph {
-        font-size: 14px;
-        text-align: center;
     }
 }

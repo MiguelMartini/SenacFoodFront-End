@@ -32,7 +32,6 @@ export const Receita = () => {
 
         axios.get(`http://localhost:3333/recipes/${id}`).then((response) => {
           setRecipes(response.data);
-          console.log(response);
         });
       } catch (error) {
         console.error("Erro: ", error);
@@ -49,8 +48,12 @@ export const Receita = () => {
     }
   }
 
+  
   const handleBack = () => {
     navigate('/listarReceitas')
+  }
+  const handleEdit = () => {
+  navigate(`/editarReceita/${id}`)
   }
   return (
     <>
@@ -73,6 +76,7 @@ export const Receita = () => {
             <div>
               <button className={styles.backBtn} onClick={handleBack}>Voltar</button>
               <button className={styles.deleteBtn} onClick={handleDelete}>Excluir receita</button>
+              <button className={styles.deleteBtn} onClick={handleEdit}>Editar receita</button>
             </div>
           </div>
         </div>

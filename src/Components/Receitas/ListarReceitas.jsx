@@ -34,7 +34,6 @@ export const ListarReceitas = () => {
           .get(`http://localhost:3333/recipes/user/${userId}`)
           .then((response) => {
             setUserRecipes(response.data);
-            console.log(response.data)
           })
           .catch((error) => {
             console.error("Erro ao buscar: ", error);
@@ -57,9 +56,7 @@ export const ListarReceitas = () => {
         <div className={styles.titlePage}>
           <p className={styles.title}>Receitas</p>
         </div>
-        <div className={styles.voltar}>
-          <button className={styles.voltarBtn} onClick={handleBack}>Voltar</button>
-        </div>
+        
         <div className={styles.receitas}>
           {userRecipes.map((receita) => (
             <Recipes
@@ -71,6 +68,9 @@ export const ListarReceitas = () => {
               difficulty={receita.difficulty}
             />
           ))}
+        </div>
+        <div className={styles.voltar}>
+          <button className={styles.voltarBtn} onClick={handleBack}>Voltar</button>
         </div>
         <Copyrights />
       </div>

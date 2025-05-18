@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import CacthingData from './Components/CacthingData.jsx'
+import MainPage from './Components/MainPage.jsx'
 import { CreateUser } from './Components/CreateUser.jsx'
 import { UserLogin } from './Components/UserLogin.jsx'
 import { Logado } from './Components/Logado.jsx'
@@ -10,12 +10,13 @@ import PrivateRoute from './Components/PrivateRoute.jsx'
 import { CreateRecipe } from './Components/Receitas/CreateRecipe.jsx'
 import { ListarReceitas } from './Components/Receitas/ListarReceitas.jsx';
 import { Receita } from './Components/Receitas/Receita.jsx'
+import { EditarReceita } from './Components/Receitas/EditarReceita.jsx'
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <CacthingData/>
+    element: <MainPage/>
   },
   {
     path: "/registrar",
@@ -54,6 +55,14 @@ const router = createBrowserRouter([
       {
         path: "/receita/:id",
         element: <Receita/>
+      }
+    ]
+  },{
+    element: <PrivateRoute/>,
+    children: [
+      {
+        path: "/editarReceita/:id",
+        element: <EditarReceita/>
       }
     ]
   }

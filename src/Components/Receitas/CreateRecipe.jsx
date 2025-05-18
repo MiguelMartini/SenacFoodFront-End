@@ -33,18 +33,19 @@ export const CreateRecipe = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    try{
+
+    try {
       const token = localStorage.getItem("token");
       const tokenDecoded = jwtDecode(token);
       const userId = tokenDecoded.id;
 
       const updatedForm = {
-        ...recipeDataForm,userId: userId,
+        ...recipeDataForm,
+        userId: userId,
       };
 
       const response = await axios.post(
-        "http://localhost:3333/recipes", 
+        "http://localhost:3333/recipes",
         updatedForm,
         {
           headers: {
@@ -52,15 +53,17 @@ export const CreateRecipe = () => {
           },
         }
       );
-
-      console.log("receita cadastrado com sucesso");
-      setRecipeDataForm({ user_id: {userId} ,title: "", ingredients: "", steps: "", category: "", difficulty: ""});
-      navigate('/logado')
-    } catch(error){
-      console.error(
-        error.response?.data || error.message
-      );
-      setErrorMessage("E-mail ou senha incorretos.");
+      setRecipeDataForm({
+        user_id: { userId },
+        title: "",
+        ingredients: "",
+        steps: "",
+        category: "",
+        difficulty: "",
+      });
+      navigate("/logado");
+    } catch (error) {
+      setErrorMessage("Todas as informações devem ser preenchidas!");
     }
   };
 
@@ -86,8 +89,6 @@ export const CreateRecipe = () => {
     }
   }, []);
 
-  
-
   const handleBack = () => {
     navigate("/logado");
   };
@@ -100,11 +101,11 @@ export const CreateRecipe = () => {
           <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.titleDiv}>
               <p className={styles.title}>Cadastrar Receita</p>
-              <p>{errorMessage}</p>
             </div>
-            <label className={styles.nameL}>
-              Nome:{" "}
-            </label>
+            <div className={styles.error}>
+              <p className={styles.registerError}>{errorMessage}</p>
+            </div>
+            <label className={styles.nameL}>Nome: </label>
             <input
               type="text"
               name="title"
@@ -113,9 +114,7 @@ export const CreateRecipe = () => {
               value={recipeDataForm.title}
               onChange={handleChange}
             />
-            <label className={styles.ingredientesL}>
-              Ingredientes
-            </label>
+            <label className={styles.ingredientesL}>Ingredientes</label>
             <input
               type="text"
               name="ingredients"
@@ -124,9 +123,7 @@ export const CreateRecipe = () => {
               value={recipeDataForm.ingredients}
               onChange={handleChange}
             />
-            <label className={styles.passosL}>
-              Passos:
-            </label>
+            <label className={styles.passosL}>Passos:</label>
             <textarea
               name="steps"
               className={styles.textArea}
@@ -134,9 +131,7 @@ export const CreateRecipe = () => {
               value={recipeDataForm.steps}
               onChange={handleChange}
             ></textarea>
-            <label className={styles.categoriaL}>
-              Categoria
-            </label>
+            <label className={styles.categoriaL}>Categoria</label>
             <input
               type="text"
               name="category"
@@ -145,12 +140,12 @@ export const CreateRecipe = () => {
               value={recipeDataForm.category}
               onChange={handleChange}
             />
-            <select 
+            <select
               name="difficulty"
               className={styles.selection}
               value={recipeDataForm.difficulty}
               onChange={handleChange}
-              >
+            >
               <option value="">Dificuldade</option>
               <option value="easy">Fácil</option>
               <option value="normal">Médio</option>
