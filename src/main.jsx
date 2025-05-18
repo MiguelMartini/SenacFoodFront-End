@@ -52,7 +52,7 @@ const router = createBrowserRouter([
     element: <PrivateRoute/>,
     children: [
       {
-        path: "/receita",
+        path: "/receita/:id",
         element: <Receita/>
       }
     ]

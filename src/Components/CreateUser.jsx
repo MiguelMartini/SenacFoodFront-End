@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import styles from "./CreateUser.module.css";
 import Copyrights from './Generics/Copyrights'
+import { useNavigate } from "react-router-dom";
 
 export const CreateUser = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,9 +29,9 @@ export const CreateUser = () => {
         "http://localhost:3333/users/register",
         formData
       );
-      console.log("usuario cadastrado com sucesso");
-      console.log(response.data);
+
       setFormData({ name: "", email: "", password: "" });
+      navigate('/login');
     } catch (error) {
       console.error("Erro ao cadastrar: ", error);
       alert(

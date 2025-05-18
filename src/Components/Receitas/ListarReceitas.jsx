@@ -22,11 +22,19 @@ export const ListarReceitas = () => {
         const tokenDecoded = jwtDecode(token);
         const userId = tokenDecoded.id;
 
+        axios.get(`http://localhost:3333/users/${userId}`)
+        .then((response) => {
+            setNomeUsuario(response.data.name);
+        })
+        .catch((error) => {
+          console.error("Erro ao buscar receitas: ", error);
+        });
+
         axios
           .get(`http://localhost:3333/recipes/user/${userId}`)
           .then((response) => {
-            setNomeUsuario(response.data.name);
-            setUserRecipes(response.data.recipes);
+            setUserRecipes(response.data);
+            console.log(response.data)
           })
           .catch((error) => {
             console.error("Erro ao buscar: ", error);
@@ -55,11 +63,12 @@ export const ListarReceitas = () => {
         <div className={styles.receitas}>
           {userRecipes.map((receita) => (
             <Recipes
+              
               key={receita.id}
               id={receita.id}
               title={receita.title}
               category={receita.category}
-              dificulty={receita.dificulty}
+              difficulty={receita.difficulty}
             />
           ))}
         </div>
