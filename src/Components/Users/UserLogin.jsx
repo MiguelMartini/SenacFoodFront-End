@@ -3,8 +3,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styles from "./UserLogin.module.css";
 
-import Copyrights from "./Generics/Copyrights";
-
 export const UserLogin = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();

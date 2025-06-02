@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import styles from "./CreateUser.module.css";
-import Copyrights from "./Generics/Copyrights";
 import { useNavigate } from "react-router-dom";
 
 export const CreateUser = () => {

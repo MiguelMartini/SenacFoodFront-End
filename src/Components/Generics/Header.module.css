@@ -3,6 +3,13 @@
     height: 100px;
     background-color: #5c6bc0;
 }
+.logoContainer {
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+}
 .navUser{
     display: flex;
     align-items: end;
@@ -45,6 +52,7 @@
     right: 0;
     z-index: 1000; /* garante que fique sobre outros elementos */
   }
+
   .navUser {
     justify-content: center;
     align-items: center;
@@ -70,17 +78,14 @@
 
 @media (max-width: 480px) {
   .headerContainer {
-    height: 60px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
+    height: 80px;
   }
-  .usuarioContainer {
-    margin: 5px 10px;
-    flex-direction: row; /* lado a lado */
+  .logoContainer{
+    margin-top: 10px;
+    justify-content: end;
+    align-items: center;
   }
+ 
   .userDiv {
     width: 40px;
     height: 40px;

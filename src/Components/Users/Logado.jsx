@@ -4,11 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
 
-import styles from './Logado.module.css';
-import reciptsIcon from "../Assets/forkKnife.png"
-import { Header } from './Generics/Header';
-import Copyrights from './Generics/Copyrights';
-import Cards from './Generics/Cards';
+// import styles from './Logado.module.css';
+import styles from './logado.module.css';
+// import reciptsIcon from "../Assets/forkKnife.png"
+import reciptsIcon from "../../Assets/forkKnife.png"
+import { Header } from './../Generics/Header';
+import Copyrights from '../Generics/Copyrights';
+import Cards from '../Generics/Cards';
 
  export const Logado = () => {
   const [nomeUsuario, setNomeUsuario] = useState('');

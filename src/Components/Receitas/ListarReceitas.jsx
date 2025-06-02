@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import axios from 'axios';
-import { jwtDecode } from 'jwt-decode';
+import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
-import styles from './ListarReceitas.module.css';
+import styles from "./ListarReceitas.module.css";
 import Copyrights from "../Generics/Copyrights";
 import { Header } from "../Generics/Header";
 import { Recipes } from "../Generics/RecipesCard";
@@ -22,13 +22,14 @@ export const ListarReceitas = () => {
         const tokenDecoded = jwtDecode(token);
         const userId = tokenDecoded.id;
 
-        axios.get(`http://localhost:3333/users/${userId}`)
-        .then((response) => {
+        axios
+          .get(`http://localhost:3333/users/${userId}`)
+          .then((response) => {
             setNomeUsuario(response.data.name);
-        })
-        .catch((error) => {
-          console.error("Erro ao buscar receitas: ", error);
-        });
+          })
+          .catch((error) => {
+            console.error("Erro ao buscar receitas: ", error);
+          });
 
         axios
           .get(`http://localhost:3333/recipes/user/${userId}`)
@@ -44,10 +45,9 @@ export const ListarReceitas = () => {
     }
   }, []);
 
-
   const handleBack = () => {
-    navigate('/logado')
-  }
+    navigate("/logado");
+  };
 
   return (
     <>
@@ -56,21 +56,26 @@ export const ListarReceitas = () => {
         <div className={styles.titlePage}>
           <p className={styles.title}>Receitas</p>
         </div>
-        
+
         <div className={styles.receitas}>
-          {userRecipes.map((receita) => (
-            <Recipes
-              
-              key={receita.id}
-              id={receita.id}
-              title={receita.title}
-              category={receita.category}
-              difficulty={receita.difficulty}
-            />
-          ))}
+          {userRecipes.length > 0 ? (
+            userRecipes.map((receita) => (
+              <Recipes
+                key={receita.id}
+                id={receita.id}
+                title={receita.title}
+                category={receita.category}
+                difficulty={receita.difficulty}
+              />
+            ))
+          ) : (
+            <p className={styles.empty}>Nenhuma receita encontrada.</p>
+          )}
         </div>
         <div className={styles.voltar}>
-          <button className={styles.voltarBtn} onClick={handleBack}>Voltar</button>
+          <button className={styles.voltarBtn} onClick={handleBack}>
+            Voltar
+          </button>
         </div>
         <Copyrights />
       </div>

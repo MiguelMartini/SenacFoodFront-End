@@ -41,54 +41,47 @@
     max-width: 100vh;
     gap: 2rem;
 }
+.empty{
+  color: #5C5959;
+  font-weight: bold;
+}
 /* media query */
 @media (max-width: 768px) {
-  .mainDiv {
-    height: auto;
-    padding: 20px;
-  }
-  
-  .title {
-    font-size: 28px;
-    text-align: center;
-  }
+    .title {
+        font-size: 32px;
+        text-align: center;
+    }
 
-  .voltar {
-    width: 100%;
-    padding: 10px;
-    justify-content: center;
-  }
+    .voltarBtn {
+        width: 250px;
+        height: 55px;
+        font-size: 14px;
+    }
 
-  .voltarBtn {
-    background-color: #CDD3F0;
-    color: #5c6bc0;
-    font-size: 14px;
-  }
-
-  .receitas {
-   max-width: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;  /* Adicionado */
-    width: 100%;  
-  }
+    .receitas {
+        gap: 1.5rem;
+        margin-bottom: 60px;
+        max-width: 90vw;
+    }
 }
 
 @media (max-width: 480px) {
-  .title {
-    font-size: 22px;
-  }
+    .title {
+        font-size: 26px;
+        text-align: center;
+    }
 
-  .voltarBtn {
-    padding: 12px 15px;
-    font-size: 12px;
-  }
+    .voltarBtn {
+        width: 250px;
+        height: 50px;
+        font-size: 15px;
+    }
 
-  .receitas {
-     margin-bottom: 30px;
-    gap: 0.8rem;
-    align-items: center;     /* Adicionado para centralizar */
-    justify-content: center; /* Adicionado */
-    width: 100%;
-  }
+    .receitas {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 40px;
+        max-width: 90vw;
+    }
 }

@@ -1,6 +1,7 @@
 import { jwtDecode } from 'jwt-decode';
 import { Navigate, Outlet } from 'react-router-dom';
 
+// decodigica o token
 const isTokenValid = (token) => {
     try{
         const decode = jwtDecode(token);
@@ -12,8 +13,10 @@ const isTokenValid = (token) => {
 
 
 const PrivateRoute = () => {
+    // procura o token no localStorage
     const token = localStorage.getItem("token");
 
+    // valida se o token é válido ou não
     if(!token || !isTokenValid(token)){
         return <Navigate to="/login"/>
     }
